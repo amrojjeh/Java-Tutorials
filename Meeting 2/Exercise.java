@@ -6,6 +6,7 @@ public class Exercise
 	// This method should NOT use recursion! Only for loops.
 	public static int summation(int x)
 	{
+		// Write your code here...
 		return 0;
 	}
 
@@ -13,6 +14,7 @@ public class Exercise
 	// Tip: You're allowed to crate a method overload for the tail recursion
 	public static int summationRecursion(int x)
 	{
+		// Write your code here...
 		return 0;
 	}
 
