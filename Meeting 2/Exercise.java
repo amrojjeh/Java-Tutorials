@@ -31,23 +31,20 @@ public class Exercise
 
 	public static void main(String[] args)
 	{
-		// Testing if methods are working properly
 		System.out.println("=== FOR LOOP FUNCTION ===");
-		long start = System.currentTimeMillis();
 		testSummation(0, 0);
 		testSummation(1, 1);
 		testSummation(2, 1 + 2);
 		testSummation(5, 1 + 2 + 3 + 4 + 5);
 		testSummation(-1, 0);
-		System.out.println("It took " + (System.currentTimeMillis() - start) + "ms");
+		testSummation(1000, 500500);
 
-		System.out.println("=== RECURSIVE FUNCTION ===");
-		start = System.currentTimeMillis();
+		System.out.println("\n=== RECURSIVE FUNCTION ===");
 		testSummationRecursion(0, 0);
 		testSummationRecursion(1, 1);
 		testSummationRecursion(2, 1 + 2);
 		testSummationRecursion(5, 1 + 2 + 3 + 4 + 5);
 		testSummationRecursion(-1, 0);
-		System.out.println("It took " + (System.currentTimeMillis() - start) + "ms");
+		testSummationRecursion(1000, 500500);
 	}
 }
