@@ -1,5 +1,3 @@
-import java.io.PrintStream;
-
 // Exercise: Add all the numbers ranging from 0 to x. If x is negative, return 0
 public class Exercise
 {
