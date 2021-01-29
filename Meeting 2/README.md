@@ -8,7 +8,7 @@ f(0) = 0
 f(1) = 1
 f(n) = f(n - 1) + f(n - 2)
 ```
-The [Fibonacci sequence](https://oeis.org/A000045) is infinite, generating each number by adding the two directly preceding numbers. So the first 5 elements, starting from 0, are: 0, 1, 1, 2, 3, 5, 8, 13... which can be rewritten as: 0, 1, (0 + 1), (1 + 1), (2 + 1), (3 + 2), (5 + 3)...
+The [Fibonacci sequence](https://oeis.org/A000045) is infinite, generating each number by adding the two directly preceding numbers. So, the first few elements, starting from 0, are: 0, 1, 1, 2, 3, 5, 8, 13... which can be rewritten as: 0, 1, (0 + 1), (1 + 1), (2 + 1), (3 + 2), (5 + 3)...
 
 **Before proceeding with the article, I recommend you write the code solution for the fibonacci sequence.** You may do it in either a for loop style or a recursive style, or both. 
 
