@@ -82,6 +82,7 @@ There are a few things to notice. Firstly, I use Java's overloading feature here
 
 There is still one problem with this, however, which brings me to what I said earlier regarding the first solution:
 > While the code is perfectly functional and would be most suitable for a language like Java for reasons we'll discuss later
+
 I specifically mention Java and not any other language, as Java does not implement what is known as tail call optimization. To keep the article short, say you have the method
 ```java
 public static long recursion(int x, int y)
