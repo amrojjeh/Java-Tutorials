@@ -51,12 +51,12 @@ If your answer to the first question is simply based on the premise that it's a 
 When we evaluate the 5th element in fibonacci, in the first solution, the for loop will run 4 times. 4 times is less than a breeze for a modern computer, and as such, it'll run fast. However, with the second solution, how many function calls are required to find the 5th element?
 
 ```
-For a simple function call, `fib_rec(1)`, it calls itself 0 times.
-`fib_rec(2)` is `fib_rec(1) + fib_rec(0)`, which is 2 calls.
-`fib_rec(3)` is `fib_rec(2) + fib_rec(1)`, which is 3 calls.
-`fib_rec(4)` is `fib_rec(3) + fib_rec(2)`, which is 5 calls.
-`fib_rec(5)` is `fib_rec(4) + fib_rec(3)`, which is 8 calls.
-`fib_rec(6)` is `fib_rec(5) + fib_rec(4)`, which is 13 calls.
+For a simple function call, fib_rec(1), it calls itself 0 times.
+fib_rec(2) is fib_rec(1) + fib_rec(0), which is 2 calls.
+fib_rec(3) is fib_rec(2) + fib_rec(1), which is 3 calls.
+fib_rec(4) is fib_rec(3) + fib_rec(2), which is 5 calls.
+fib_rec(5) is fib_rec(4) + fib_rec(3), which is 8 calls.
+fib_rec(6) is fib_rec(5) + fib_rec(4), which is 13 calls.
 ```
 
 The amusing thing is that the number of calls required is represented by the fibonacci sequence. However, that's also what's keeping our code slow. By the 6th index, we've already reached 13 calls, and it'll only grow faster the higher the index is. That is why the 30th index only takes a second while the 40th index takes minutes.
