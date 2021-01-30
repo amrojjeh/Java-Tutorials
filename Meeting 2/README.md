@@ -67,15 +67,15 @@ The inefficiency is due to the simple fact that we're recalculating every index 
 ```java
 public static long fib_tail(long x)
 {
-	return fib_tail(x, 1, 0);
+  return fib_tail(x, 1, 0);
 }
 
 public static long fib_tail(long x, long current, long previous)
 {
-	if (x <= 0) return previous;
-	if (x == 1) return current;
+  if (x <= 0) return previous;
+  if (x == 1) return current;
 
-	return fib_tail(--x, current + previous, current);
+  return fib_tail(--x, current + previous, current);
 }
 ```
 There are a few things to notice. Firstly, I use Java's overloading feature here, which is equivalent to default variables in python. Secondly, the calculation is done and is stored within the function parameters. This means that it calls one single function, unlike the previous solution, and once it reaches the end of the recursive chain, it simply returns the result without further calculation. This is known as tail recursion, as it only calls itself once and it is the last line of the method. They prove to be just as fast as a for loop function, while also remaining to be almost identical to the mathematical solution, with only slight adjustment.
@@ -87,8 +87,8 @@ I specifically mention Java and not any other language, as Java does not impleme
 ```java
 public static long recursion(int x, int y)
 {
-	if (x <= 0) return y;
-	return recursion(--x, y + 1);
+  if (x <= 0) return y;
+  return recursion(--x, y + 1);
 }
 ```
 Which simply produces `x + y` by summing individual 1s recursively. If you were to call `recursion(10_000, 0)`, it would work perfectly fine. However, add another 0, `recursion(100_000, 0)`, and you will get a nasty stack overflow. This is because each function call takes an additional slot in what's known as the call stack, which only has a limited number of slots. For the second solution, taking a slot is necessary, as we require the function to be called back to perform our addition operation. However, for tail recursive methods, nothing is being done to our call other than its return, so it doesn't need a slot. Some compilers and interpreters recognize that, and they allow the function to take constant space. The feature is called Tail Call Optimization (TCO), and languages such as Scala and Javascript implement it. Java, unfortunately, does not. There are workarounds, but I'll leave you to explore those on your own.
