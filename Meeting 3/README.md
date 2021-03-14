@@ -35,7 +35,7 @@ Running this, we get the result:
 (2.00, 3.00) + (5.00, 0.00) = (7.00, 3.00)
 ```
 
-The code works fine, however, the issues that exist are not regarding the functionality of the code. Rather, it regards the *scalability* of the code. If we want to display another result where we subtract two points, here's how'd we go about that:
+The code works fine, however, the issues that exist are not regarding the functionality of the code. Rather, it regards the scalability of the code. If we want to display another result where we subtract two points, here’s how’d we go about that:
 
 ```java
 public static void main(String[] args)
@@ -73,23 +73,23 @@ And indeed, we get the output:
 (24.00, 30.00) - (20.00, 30.00) = (4.00, 0.00
 ```
 
-You'll notice that messing up this code can be really easy. Seeing how we have points ranging 1-6, it's incredibly easy to press the wrong button and add x5 to x3. And since we're adding multiple times, it'd also be easy to mess up and add x and y together rather than just the x. Also note that if we choose to represent the points as vectors, more complciated operations, such as scalar multipications, normalization, and getting the magnitude would be difficult to interpret just based on the code, and it would also require the memorization of the formulas, while ensuring that we write down the formulas correctly everytime.
+You’ll notice that messing up this code can be really easy. Seeing how we have points ranging from 1 to 6, it’s incredibly easy to press the wrong button and add x5 to x3. And since we’re adding multiple times, it’d also be easy to mess up and add x and y together rather than just the x. Also note that if we choose to represent the points as vectors, more complicated operations, such as scalar multiplications, normalization, and getting the magnitude would be difficult to interpret just based on the code, and it would also require the memorization of the formulas while ensuring that we write down the formulas correctly every time.
 
-Other problems include outputting the string representation of a point. Outputting just three points takes up almost the entire width of my screen, and if I were to update how I choose to represent each point, I'd have to update two different locations. It may not look like much with a codebase of less than a 100 lines, but it's common to have code bases that are more than a thousand lines of code, and updating every instance where a point could be printed would be a hassle of a task.
+Other problems include outputting the string representation of a point. Outputting just three points takes up almost the entire width of my screen, and if I were to update how I choose to represent each point, I’d have to update two different locations. It may not look like much with a codebase of fewer than 100 lines, but it’s common to have codebases that are more than a thousand lines of code, and updating every instance where a point could be printed would be a hassle of a task.
 
-Along with that, we have one more problem. Suppose we want to make it clear that we're adding points by writing a method such as this:
+Along with that, we have one more problem. Suppose we want to make it clear that we’re adding points by writing a method such as this:
 
 ```java
 public static int add_points(int x1, int x2, int y1, int y2)
 ```
 
-Well, here's the problem. It's impossible to return more than one value. Since a point stores two values, it not only makes it inconvenient to write a method such as this, but also close to impossible. So, how do we solve this crisis?
+Well, here’s the problem. It’s impossible to return more than one value. Since a point stores two values, it not only makes it inconvenient to write a method such as this but also close to impossible. So, how do we solve this crisis?
 
 ## Making a Point class
 
 Making a point class is rather straight forward. Here's the simplest version:
-Note: This would be outside of the main class but within the same file. Later on, we'll discuss Java projects with multiple files.
 ```java
+// Note: This would be outside of the main class but within the same file. Later on, we'll discuss Java projects with multiple files.
 class Point
 {
 	double x;
@@ -139,7 +139,7 @@ This can be better visualized as such. Notice how every `Point` object has the f
 To create a new `Point` object for us to modify, we use the `new` operator, followed by the type and parenthesis, as if we are invoking a method. The reasoning for this will be covered later. For now, take `new Point()` as how you create a new `Point` object.
 
 ## Making Code Easier
-Notice that we have three problems. `add_points` for one, is in an inapporpiate place. You can imagine when you're dealing with 100s of data, and each group of data has its own group of methods related, throwing all the methods in a single file can become counter-productive. The second problem is that constructing point objects is also tedious, as we need to assign every value manually. For classes which are more sophisticated, this can become troublesome quickly. The other problem is that outputting each point is not only time consuming, but if we want to change how we print point, we have to look through every needle in the haystack, and in a large program, that can destroy the momentum of the project.
+Notice that we have three problems. `add_points` for one, is in an inappropriate place. You can imagine when you're dealing with 100s of data, and each group of data has its own group of methods related, throwing all the methods in a single file can become counter-productive. The second problem is that constructing point objects is also tedious, as we need to assign every value manually. For classes that are more sophisticated, this can become troublesome quickly. The other problem is that outputting each point is not only time-consuming, but if we want to change how we print point, we have to look through every needle in the haystack, and in a large program, that can destroy the momentum of the project.
 
 ### The First Problem, Methods
 
